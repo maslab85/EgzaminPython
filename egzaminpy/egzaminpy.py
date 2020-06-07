@@ -29,7 +29,7 @@ def wysz_znak(tekst):
     for a in list(tekst):
         lista.append(tekst.count(a))
     for i in range(len(lista)-1):
-        if lista[i]>lista[i+1]:
+        if lista[i]>=lista[i+1]:
             temp=i
 
     return tekst[temp]
@@ -37,24 +37,24 @@ def wysz_znak(tekst):
 print(wysz_znak("ala"))
 
 def szukaj(liczba):
-    slownik = {    "sto":1,
-                   "dwiescie": 2,
-                   "trzysta": 3,
-                   "czterysta": 4,
-                   "piencet": 5,
-                   "szescset": 6,
-                   "siedemset": 7,
-                   "osiemset": 8,
-                   "dziewiecet": 9,
-                   "dziesiec":1,
-                   "dwadziescia": 2,
-                   "trzydziesci":3,
-                   "czterdziesci":4,
-                   "piedziesiat":5,
-                   "szescdziesiąt":6,
-                   "siedemdziesiat":7,
-                   "osiemdziesiat": 8,
-                   "dziewiedziesiat":9,
+    slownik = {    "sto":100,
+                   "dwiescie": 200,
+                   "trzysta": 300,
+                   "czterysta": 400,
+                   "piencet": 500,
+                   "szescset": 600,
+                   "siedemset": 700,
+                   "osiemset": 800,
+                   "dziewiecet": 90,
+                   "dziesiec":10,
+                   "dwadziescia": 20,
+                   "trzydziesci":30,
+                   "czterdziesci":40,
+                   "piedziesiat":50,
+                   "szescdziesiąt":60,
+                   "siedemdziesiat":70,
+                   "osiemdziesiat": 80,
+                   "dziewiedziesiat":90,
                    "zero":0,
                    "jeden": 1,
                    "dwa":2,
@@ -77,14 +77,13 @@ def szukaj(liczba):
         if a==(len(liczba)-1):
             slowo.append(liczba[c:a+1])
             
-    print(slowo)
-    numer=[]
+    numer=0
 
     for i in slowo:
         if i in slownik:
-            numer.append(slownik[i])
+            numer += slownik[i]
 
     return numer
 
 
-print(szukaj("dwiescie dwadziescia jeden"))
+print(szukaj("trzysta dwadziescia jeden"))
