@@ -1,7 +1,7 @@
 #Zadania z egzaminu 
 #Opracowane: Piotr Balcerzak
 
-def szybkiesort(lista):
+def quicksort(lista):
     wieksze_rowne = []
     mniejsze = []
     if len(lista) > 1:
@@ -11,7 +11,7 @@ def szybkiesort(lista):
                 wieksze_rowne.append(liczba)
             else:
                 mniejsze.append(liczba)
-        return szybkiesort(wieksze_rowne) + [pivot] + szybkiesort(mniejsze)
+        return quicksort(wieksze_rowne) + [pivot] + quicksort(mniejsze)
     else:
         return lista
 
@@ -23,26 +23,24 @@ def unikalne(tekst):
              lista.append(znak)
      return lista
 
+print("Zad sorotwanie metoda quicksort oraz unikalne liczby")
+print(unikalne(quicksort(lista=[3,1,5,2,3,1,8])))
 
-print(unikalne(szybkiesort(lista=[3,1,5,2,3,1,8])))
-
-#do poprawy <--
 
 def wysz_znak(tekst):
     lista=[]
-    temp=0
+    temp=' '
     for a in list(tekst):
         lista.append(tekst.count(a))
-    for i in range(len(lista)):
-        if lista[i]>=temp:
-            temp=lista[i]
+    for i in range(len(lista)-1):
+        if lista[i]>lista[i + 1]:
+            temp=tekst[i]
 
 
-    return tekst[temp]
+    return temp
 
-print(wysz_znak("ziemniak"))
-
-#-->
+print("Zad wyszukaj jaka litera powtarza sie najwiecej razy ")
+print(wysz_znak("ziemniak z burakaa"))
 
 def szukaj(liczba):
     slownik = {    "sto":100,
@@ -87,7 +85,7 @@ def szukaj(liczba):
     c=0
 
     for a in range(len(liczba)):
-        
+
         if liczba[a]==" ":
             slowo.append(liczba[c:a])
             c=a+1
@@ -102,19 +100,21 @@ def szukaj(liczba):
 
     return numer
 
-
+print("Zad zamiana liczby slownej na cyfrowa")
 print(szukaj("dwiescie dwadziescia jeden"))
 
-def wysz_znak(tekst,znak):
+def wysz(tekst,znak):
     liczba=0
     for a in list(tekst):
         if znak in a:
             liczba+=1
 
-
     return liczba
 
-print(wysz_znak("hakunamatata","a"))
+print("Zad wyszukaj ile razy powtarza sie litera w slowie")
+zdanie="hakuna matata jak cudownie to brzmi"
+print(zdanie)
+print(wysz(zdanie,"a"))
 
 def sort(tab): 
     for i in range(len(tab)):
@@ -128,4 +128,5 @@ def sort(tab):
 
     return tab
 
+print("Zad sortowanie bombelkowe")
 print(sort([2,5,1,24,7]))
